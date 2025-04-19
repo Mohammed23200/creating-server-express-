@@ -22,9 +22,21 @@ app.get("/",(req,res)=>{
     console.log("home request");
     res.send("this is a home page")
 })
-app.get(/(.*)/,(req,res)=>{
-    res.send("404")
+// app.get(/(.*)/,(req,res)=>{
+//     res.send("404")
+// })
+// /r/somthing
+app.get("/r/:subreddit", (req,res)=>{
+    const {subreddit} = req.params;
+    res.send(`<h1>browsing the ${subreddit} subreddit</h1>`)
 })
+
+
+
+
+
+
+
 app.listen(3000,()=>{
     console.log('Server started on port 3000');
 })
