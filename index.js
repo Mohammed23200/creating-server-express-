@@ -31,7 +31,13 @@ app.get("/r/:subreddit", (req,res)=>{
     res.send(`<h1>browsing the ${subreddit} subreddit</h1>`)
 })
 
-
+app.get("/search",(req,res)=>{
+    const {q} = req.query;
+    if (!q){
+        res.send("nothing found if nothing search");
+    }
+    res.send(`<h1>search for ${q}</h1>`)
+})
 
 
 
